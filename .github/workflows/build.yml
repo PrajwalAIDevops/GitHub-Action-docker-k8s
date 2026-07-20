@@ -28,10 +28,9 @@ jobs:
               uses: actions/checkout@v4
               with:
                 fetch-depth: 0
-            - name: install gitleak 
-              run: sudo apt install gitleak -y
-            - name: scan the repo
-              run: gitleaks dir . -v
+            - name: RUN Gitleaks
+              uses: gitleaks/gitleaks-action@v2
+              
             - name: install trivy 
               run: |
                 sudo apt-get install wget gnupg -y
