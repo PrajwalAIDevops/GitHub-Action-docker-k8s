@@ -29,7 +29,7 @@ jobs:
               with:
                 fetch-depth: 0
             - name: install gitleak 
-              run: apt install gitleak -y
+              run: sudo apt install gitleak -y
             - name: scan the repo
               run: gitleaks dir . -v
             - name: install trivy 
