@@ -58,7 +58,7 @@ jobs:
         needs: Scaning-and-docker-registory
         steps:
         - name: checkout the sources
-          run: actions/checkout@v4
+          uses: actions/checkout@v4
         - name: deploy in k8s
           run: kubectl apply -f k8s/
     
