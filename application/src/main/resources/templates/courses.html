@@ -1,0 +1,69 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Courses</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    table { border-collapse: collapse; width: 100%; max-width: 720px; }
+    th, td { border: 1px solid #ddd; padding: 10px; }
+    th { background: #f6f6f6; }
+    .error { color: #b00020; }
+    .message { color: #0b6b0b; }
+    .card { padding: 16px; border: 1px solid #ddd; border-radius: 8px; max-width: 720px; }
+    .row { margin-top: 16px; }
+    label { display: inline-block; width: 80px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Courses</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/students">Students</a>
+    </nav>
+
+    <p th:if="${message}" class="message" th:text="${message}"></p>
+    <p th:if="${error}" class="error" th:text="${error}"></p>
+
+    <table class="row">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Credit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="c : ${courses}">
+          <td th:text="${c.id}"></td>
+          <td th:text="${c.title}"></td>
+          <td th:text="${c.credit}"></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(courses)}">
+          <td colspan="3">No courses found.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row">
+      <h2>Add Course</h2>
+      <form method="post" action="/courses">
+        <div>
+          <label>Title</label>
+          <input type="text" name="title" required />
+        </div>
+        <div style="margin-top: 8px;">
+          <label>Credit</label>
+          <input type="number" name="credit" min="1" max="10" required />
+        </div>
+        <div style="margin-top: 12px;">
+          <button type="submit">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
