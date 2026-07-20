@@ -9,7 +9,7 @@ import school.domain.Course;
 import school.repo.CourseRepository;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-
+// api_key=1245785wwdsawsBVSKJ
 @ExtendWith(MockitoExtension.class)
 class CourseServiceUnitTest {
 
