@@ -15,7 +15,7 @@ class CourseServiceUnitTest {
 
   @Mock
   CourseRepository repo;
-
+// API_KEY=HSFTeybxHSWUNCVMOUTWVZOVCBWRTAERQUBX
   @InjectMocks
   CourseService service;
 
