@@ -26,6 +26,12 @@ jobs:
         steps:
             - name: Checkout the code
               uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - name: install gitleak 
+              run: apt install gitleak -y
+            - name: scan the repo
+              run: gitleaks dir . -v
             - name: install trivy 
               run: |
                 sudo apt-get install wget gnupg -y
