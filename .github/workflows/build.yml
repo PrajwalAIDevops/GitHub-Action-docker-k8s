@@ -61,7 +61,8 @@ jobs:
           uses: actions/checkout@v4
         - name: deploy in k8s
           run: kubectl apply -f k8s/
-    
+        - name: acess on internet 
+          run: kubectl port-forward svc/services-app 8080:8080 --address 0.0.0.0 -n git-action
         #needs: Scaning-and-docker-registory
         #steps:
        #     - name: pull the docker image
